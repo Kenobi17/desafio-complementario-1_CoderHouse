@@ -1,19 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container">
+    <h1 class="text-center">Desafio Complementario 1</h1>
+    <TableComponent
+      :columns="studentsHeaders"
+      :items="students"
+      :title="studentsTitle"
+      :table-style="studentsStyle"
+    />
+    <TableComponent
+      :columns="seriesHeaders"
+      :items="series"
+      :title="seriesTitle"
+      :table-style="seriesStyle"
+    />
+    <TableComponent
+      :columns="moviesHeaders"
+      :items="movies"
+      :title="moviesTitle"
+      :table-style="{ color: 'pink', background: 'green' }"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import TableComponent from './components/TableComponent.vue';
+import data from './data.js';
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    TableComponent,
+  },
+  data() {
+    return data;
+  },
+};
 </script>
 
 <style>
